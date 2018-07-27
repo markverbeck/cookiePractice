@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practice Cookie.</title>
+</head>
+
+<style type="text/css">
+	.Red {
+		background-color: red;
+	}
+
+	.Blue {
+		background-color: blue;
+	}
+
+	.Green {
+		background-color: green;
+	}
+</style>
+
+<body id="body" style="">
+<select id="backgroundSelect" onChange="change()">
+	<option value="Select Color">Select Color</option>
+	<option value="Red">Red</option>
+	<option value="Blue">Blue</option>
+	<option value="Green">Green</option>
+</select>
+
+<script type="text/javascript">
+	var background;
+	var color;
+	var className;
+
+	window.onload = function(){
+		
+		if(document.cookie.length > 0){
+			background = document.getElementById("body");
+		background.className = "";
+			var cookieArray = document.cookie.split("=");
+			console.log(cookieArray);
+			color = cookieArray[1];
+			background.className += className;
+
+		}
+	}
+
+	var change = function(){
+		background = document.getElementById("body");
+		color = document.getElementById("backgroundSelect").value;
+		className = color;
+		background.className = "";
+
+			if(color != "Select Color"){
+				
+				background.className += className;
+				document.cookie ="background_color=" + color + ";expires=Mon;";
+
+		}
+	}
+</script>
+
+</body>
+</html>
