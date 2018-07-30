@@ -32,10 +32,11 @@
 	var className;
 
 	window.onload = function(){
-		
+		console.log(document.cookie);
+		console.log("dude");
 		if(document.cookie.length > 0){
 			background = document.getElementById("body");
-		background.className = "";
+		
 			var cookieArray = document.cookie.split("=");
 			console.log(cookieArray);
 			color = cookieArray[1];
@@ -53,7 +54,8 @@
 			if(color != "Select Color"){
 				
 				background.className += className;
-				document.cookie ="background_color=" + color + ";expires=Mon;";
+				document.cookie = "background_color=" + className + ";expires=Monday;";
+				console.log(document.cookie);
 
 		}
 	}
